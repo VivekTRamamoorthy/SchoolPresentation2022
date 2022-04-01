@@ -48,3 +48,14 @@ function scrollRight(){
         behavior: 'smooth'
       });
 }
+
+document.getElementById("full-screen").addEventListener('click',fullscreenToggle)
+function fullscreenToggle(){
+    console.log("requested fullscreen")
+    if (!document.fullscreenElement){
+        container.requestFullscreen()
+    }else{
+        document.exitFullscreen()
+    }
+
+}
