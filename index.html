@@ -12,8 +12,9 @@
     
     <title>School presentation 2022</title>
     
-    <link rel="text/html" href='href="https://fonts.googleapis.com/css?family=Poppins&"'>
+    <link rel="text/html" href='href="https://fonts.googleapis.com/css?family=Poppins"'>
     <link rel="stylesheet" href="css/presentation.css">
+    <link rel="stylesheet" href="css/schoolpresentation.css">
     
 
 
@@ -24,10 +25,9 @@
     <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0-rc.1/dist/katex.min.js" integrity="sha384-483A6DwYfKeDa0Q52fJmxFXkcPCFfnXMoXblOkJ4JcA8zATN6Tm78UNL72AKk+0O" crossorigin="anonymous"></script>
     <!-- To automatically render math in text elements, include the auto-render extension: -->
     <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0-rc.1/dist/contrib/auto-render.min.js" integrity="sha384-yACMu8JWxKzSp/C1YV86pzGiQ/l1YUfE8oPuahJQxzehAjEt2GiQuy/BIvl9KyeF" crossorigin="anonymous"></script>
-    <!-- onload="LaTeXrender(document.body);" -->
-    <script>
-        function LaTeXrender() {
-            renderMathInElement(document.body, {
+    <script defer >
+        function LaTeXrender(elem=document.body) {
+            renderMathInElement(elem, {
                 delimiters: [
                     {left: "$$", right: "$$", display: true},
                     {left: "$", right: "$", display: false},
@@ -35,16 +35,26 @@
                     {left: "\\[", right: "\\]", display: true}
                 ]
             });
+            console.log("latex rendered")
         }
+
+
     </script>
     
-
+    
     <script src="js/Matlab.js"></script>
     <script src="js/plotlib.js"></script>
+    <script defer>
+        setTimeout(()=>{
+            let sections = document.querySelectorAll("section")
+            sections.forEach( section => LaTeXrender(section))
+        },2000)
+    </script>
+    
     <script defer src="js/presentation.js"></script>
     <script defer src="js/graphs.js"></script>
-
-
+    <script defer src="js/slope_tracer.js"></script>
+    
 
 
 </head>
@@ -57,30 +67,32 @@
         <div class="full-screen" id="full-screen"><i class="fa fa-arrows-alt" aria-hidden="true"></i></div>
         <div class="home" id="home"></div>
         
-        <section class="slide section-1 title-slide">
+        <!-- <section class="slide section-1 title-slide">
             <div class="title">No2Noise School Lecture</div>
             <p>Why calculus is actully very simple</p>
         </section>
+
+
         <section class="slide section-2">
             <h1> What is calculus?</h1>
             <div>
                 Calculus comes from graphs
             </div>
-            
-            
-            
         </section>
+
+
         <section class="slide section-3">
             <h1> What are graphs?</h1>
             <div class="flex row center gap">
-                <button>y=1</button>
-                <button>y=x</button>
-                <button>y=x^2</button>
-                <button>y=sin(x)</button>
-                <button>y=cos(x)</button>
+                <button onclick="plotFunction(x=>1)">y=1</button>
+                <button onclick="plotFunction(x=>x)">y=x</button>
+                <button onclick="plotFunction(x=>Math.pow(x,2))">y=x^2</button>
+                <button onclick="plotFunction(x=>Math.sin(x))">y=sin(x)</button>
+                <button onclick="plotFunction(x=>Math.cos(x))">y=cos(x)</button>
             </div>
             <canvas id="graphs" width="400" height="400"></canvas>
         </section>
+
         
         <section class="slide section-3" id="">
             <h1>Two categories of calculus</h1>
@@ -89,40 +101,21 @@
                 <li>Integral - Area</li>
             </ul>
         </section>
+
         
         <section class="slide section-3">
             <h1>What are slopes?</h1>
-            canvas showing curve and its gradient with mouse and touch listeners moving the tangent line and height line with dots
-        </section>
+            canvas showing curve and its gradient with mouse and touch listeners moving the tangent line and height line with dots.
+        </section> -->
+
         
         <section class="slide section-3">
-            <h1>Slide 3</h1>
+            <h1>Tracking $\frac{\Delta y}{\Delta x}$ </h1>
+            <canvas id="slope-tracer-function-canvas"></canvas>
+            <canvas id="slope-tracer-derivative-canvas"></canvas>
         </section>
-        <section class="slide section-3">
-            <h1>Slide 3</h1>
-        </section>
-        <section class="slide section-3">
-            <h1>Slide 3</h1>
-        </section>
-        <section class="slide section-3">
-            <h1>Slide 3</h1>
-        </section>
-        <section class="slide section-3">
-            <h1>Slide 3</h1>
-        </section>
-        <section class="slide section-3">
-            <h1>Slide 3</h1>
-        </section>
-        <section class="slide section-3">
-            <h1>Slide 3</h1>
-        </section>
-        <section class="slide section-3">
-            <h1>Slide 3</h1>
-        </section>
-        <section class="slide section-3">
-            <h1>Slide 3</h1>
-        </section>
+        
+       
     </div>
-    
 </body>
 </html>

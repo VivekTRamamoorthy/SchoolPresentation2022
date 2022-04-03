@@ -30,8 +30,6 @@ document.addEventListener("DOMContentLoaded",()=>{
     slides.forEach((slide,index)=>{slide.style="background-color:"+colors[index%colors.length]})
 
     // Arrow buttons:
-
-
 })
 
 
