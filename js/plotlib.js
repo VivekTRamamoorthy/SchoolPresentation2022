@@ -68,6 +68,7 @@ const figure = function(figureNo = null,parentElementId = null){
                 PLOT_GLOBAL_CONTROLS.figureHandles[figureNo-1]= figureHandle;
             }else{
                 figureHandle =  new Figure(figureId);
+                PLOT_GLOBAL_CONTROLS.figureHandles[figureNo-1]= figureHandle;
             }
             let index=0;
             while(index<100){
@@ -256,6 +257,9 @@ class Figure{
             this.axisUpdate()
         }
         this.drawAxes()
+    }
+    drawLines(){
+        this.lines.forEach(line => this.drawLine(line));
     }
     axisUpdate(){
         let xLowerLimit = this.xlim[0];
@@ -468,7 +472,7 @@ class Figure{
         let x = line.x;
         let y = line.y;
         
-        let  colorCode= line.color// "rgba("+color[0]+ "," +color[1]+","+ color[2]+",0.8)";
+        let  colorCode= line.color?line.color:this.color// "rgba("+color[0]+ "," +color[1]+","+ color[2]+",0.8)";
         c.strokeStyle= colorCode//"rgb(200,200,200)"; // from color value
         c.lineWidth = this.lineWidth
         c.beginPath()
