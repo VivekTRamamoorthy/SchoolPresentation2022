@@ -91,6 +91,7 @@
         
         <section class="slide section-3" id="">
             <h1>Two categories of calculus</h1>
+
             <ul>
                 <li>Differential calculus - Slope</li>
                 <li>Integral - Area</li>
@@ -106,8 +107,13 @@
         
         <section class="slide section-3 flex column center">
             <h1>Tracking $\frac{\Delta y}{\Delta x}$ in $y=x$</h1>
-            <canvas id="slope-tracer-function-canvas"></canvas>
-            <canvas id="slope-tracer-derivative-canvas"></canvas>
+            <div class="trackingDiv">
+                <div>$y(x)$</div>
+                <canvas id="slope-tracer-function-canvas"></canvas>
+                <div>$\frac{\Delta y}{\Delta x }$</div>
+                <canvas id="slope-tracer-derivative-canvas"></canvas>
+            </div>
+
         </section>
      
         

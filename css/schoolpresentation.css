@@ -14,3 +14,8 @@
     height:50vh;
     background-color: white;
 }
+.trackingDiv{
+    display:grid;
+    grid-template-columns: 1fr 4fr;
+    place-items: center;
+}

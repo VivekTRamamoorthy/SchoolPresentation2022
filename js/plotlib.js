@@ -251,7 +251,7 @@ class Figure{
         this.axisColor = '#000';
         this.gridColor = '#cc0';
         this.grid = "on"
-        this.gridLineWidth = 3;
+        this.gridLineWidth = 1;
         this.xTicks = "auto";
         this.yTicks = "auto";
 
@@ -429,16 +429,13 @@ class Figure{
 
             if (this.grid =="on"){ // grid drawing
                 c.beginPath()
-
                 c.strokeStyle=this.gridColor ;   c.lineWidth = this.gridLineWidth;
                 c.moveTo( this.xtoPx(xlim[0]),this.ytoPx(yvalue)) ;
                 c.lineTo( this.xtoPx(xlim[1]),this.ytoPx(yvalue));
                 c.stroke();
             }
             c.beginPath()
-
             c.strokeStyle=this.axisColor ; c.lineWidth = this.boxlineWidth;
-
             c.moveTo( this.xtoPx(xlim[0])+.01*this.width,this.ytoPx( yvalue)) ;
             c.lineTo( this.xtoPx(xlim[0])-.01*this.width,this.ytoPx( yvalue) );
             c.fillText(parseFloat(yvalue.toPrecision(4)), this.xtoPx(xlim[0])-.4*this.padding, this.ytoPx(yvalue));
