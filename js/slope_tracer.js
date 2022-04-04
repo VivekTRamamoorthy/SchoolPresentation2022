@@ -4,11 +4,44 @@
 
 
 
-const slopeTracerFunctionCanvas=document.getElementById("slope-tracer-function-canvas");
-const slopeTracerDerivativeCanvas=document.getElementById("slope-tracer-derivative-canvas");
+var slopeTracerFunctionCanvas=document.getElementById("slope-tracer-function-canvas");
+var slopeTracerDerivativeCanvas=document.getElementById("slope-tracer-derivative-canvas");
 
 let fun = x=> pow(x,2);
 let derivative = x=>x*2;
+let prob = "y=x"
+let derivativeString = "y=1"
+
+function slopeTracerProblem(prob="y=x"){
+    switch (prob) {
+        case "y=x":
+         fun = x=> x;
+         derivative = x=>1;
+         derivativeString = "y=1"
+        break;
+    
+        case "y=x^2":
+            fun = x=> x**2;
+            derivative = x=>2*x;
+            derivativeString = "y=2x"
+            break;
+    
+        case "y=cosx":
+            fun = x=> Math.cos(x);
+            derivative = x=>Math.sin(x);
+            derivativeString = "y=sin(x)"
+            break;
+    
+        case "y=expx":
+            
+            break;
+    
+        default:
+            break;
+    }
+
+}
+
 
 let x = range(-10,.1,10);
 let y = map(fun,x);
@@ -16,7 +49,7 @@ let functionPlotHandle = figure("slope-tracer-function-canvas")
 plot(x,y,'padding',30,'xlabel','','ylabel','','title','y=x^2')
 let dydx = map(derivative,x);
 let derivativePlotHandle = figure("slope-tracer-derivative-canvas")
-plot(x,dydx,'axis','fixed','xlim',[-10,10],'ylim',[-20,20],'padding',40,'xlabel','','ylabel','','title','dy/dx=2x')
+plot(x,dydx,'axis','fixed','xlim',[-10,10],'ylim',[-20,20],'padding',40,'xlabel','','ylabel','','title',derivativeString)
 
 
 
