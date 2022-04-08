@@ -1,11 +1,11 @@
 #slope-tracer-function-canvas{
     width: 50vh;
-    height:35vh;
+    height:40vh;
     background-color: white;
 }
 #slope-tracer-derivative-canvas{
     width: 50vh;
-    height:35vh;
+    height:40vh;
     background-color: white;
 }
 #graphs{
@@ -18,4 +18,5 @@
     display:grid;
     grid-template-columns: 1fr 4fr;
     place-items: center;
+    gap:1rem;
 }

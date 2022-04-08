@@ -90,29 +90,41 @@
 
         
         <section class="slide section-3" id="">
-            <h1>Two categories of calculus</h1>
+            <h1>Is the function climbing or descending?</h1>
 
-            <ul>
-                <li>Differential calculus - Slope</li>
-                <li>Integral - Area</li>
-            </ul>
+
         </section>
 
         
         <section class="slide section-3">
             <h1>What are slopes?</h1>
-            canvas showing curve and its gradient with mouse and touch listeners moving the tangent line and height line with dots.
+            <p>Slope of a function at a point $x$ is the ratio of change in the function $f(x)$ to an infinitesimal change in $x$</p>
         </section>
 
         
         <section class="slide section-3 flex column center">
             <h1>Tracking $\frac{\Delta y}{\Delta x}$ in $y=x$</h1>
-            <div class="trackingDiv">
-                <div>$y(x)$</div>
-                <canvas id="slope-tracer-function-canvas"></canvas>
-                <div>$\frac{\Delta y}{\Delta x }$</div>
-                <canvas id="slope-tracer-derivative-canvas"></canvas>
+            <div class="flex row center gap">
+
+                <div class="trackingDiv">
+                    <div>$y(x)$</div>
+                    <canvas id="slope-tracer-function-canvas"></canvas>
+                    <div>$\frac{\Delta y}{\Delta x }$</div>
+                    <canvas id="slope-tracer-derivative-canvas"></canvas>
+                </div>
+                <div class="flex column center">
+                    <div class="label" id="slopeTracerDeltaXLabel">$\Delta x$</div>
+                    <input type="range" name="deltax" id="slopeTracerDeltaXSlider">
+                </div>
             </div>
+
+        </section>
+        <section class="slide section-3 flex column ">
+            <h1>Differentiation summary</h1>
+           <div id="diffTable">
+
+
+           </div>
 
         </section>
      
